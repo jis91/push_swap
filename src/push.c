@@ -1,6 +1,6 @@
 #include "push_swap.h"
 
-void    ft_push(t_list **stack_from, t_list **stack_to)
+static void    ft_push(t_list **stack_from, t_list **stack_to)
 {
     t_list  *tmp;
 

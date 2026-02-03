@@ -58,8 +58,8 @@ static void ft_check_args(char **buffer)
     i = 0;
     while (buffer[i])
     {
-        tmp = ft_atoi(buffer[i]);
-        if (tmp < INT_MIN || tmp > INT_MAX || ft_check_nb(buffer[i]))
+        tmp = (long)ft_atoi(buffer[i]);
+        if (tmp < (long)INT_MIN || tmp > (long)INT_MAX || ft_check_nb(buffer[i]))
             ft_error();
         i++;
     }

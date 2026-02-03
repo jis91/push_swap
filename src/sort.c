@@ -54,8 +54,9 @@ static void    ft_sort_three(t_list **stack)
     t_stack *second;
 
     biggest = ft_find_biggest(*stack);
+
     top = (t_stack *)((*stack)->content);
-    second = (t_stack *)((stack*)->next->content);
+    second = (t_stack *)((*stack)->next->content);
     if (top->nbr == biggest)
         ft_rotate_stack_a(stack);
     else if (second->nbr == biggest)
@@ -93,14 +94,6 @@ static void    ft_sort_five(t_list **stack_a, t_list **stack_b)
         ft_push_a(stack_a, stack_b);
 }
 
-void    ft_sort_radix(t_list **stack_a, t_list **stack_b)
-{
-    int biggest;
-
-    biggest = ft_find_biggest(stack_a);
-
-}
-
 void    ft_sort(t_list  **stack_a, t_list **stack_b)
 {
     int     size;
@@ -115,7 +108,7 @@ void    ft_sort(t_list  **stack_a, t_list **stack_b)
         ft_sort_five(stack_a, stack_b);
     else 
     {
-        ft_index_stack(stack_a);
+        ft_index_stack(*stack_a);
         ft_sort_radix(stack_a, stack_b);
     }
 }

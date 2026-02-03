@@ -1,6 +1,6 @@
 #include "push_swap.h"
 
-void    ft_reverse_rotate_stack(t_list  **stack)
+static void    ft_reverse_rotate_stack(t_list  **stack)
 {
     t_list  *previous;
     t_list  *last;
