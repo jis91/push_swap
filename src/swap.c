@@ -1,10 +1,10 @@
-# include "push_swap.h"
+#include "push_swap.h"
 
 void    ft_swap(t_list  **stack)
 {
     t_list  *tmp;
 
-    if(!*stack || (*stack)->next == NULL)
+    if (!*stack || !(*stack)->next)
         return ;
     tmp = (*stack)->next;
     (*stack)->next = tmp->next;

@@ -4,17 +4,12 @@ void    ft_push(t_list **stack_from, t_list **stack_to)
 {
     t_list  *tmp;
 
-    if (stack_from == NULL || *stack_from == NULL)
+    if (!stack_from|| !*stack_from)
         return ;
     tmp = *stack_from;
     *stack_from = (*stack_from)->next;
-    if (stack_to == NULL)
-        *stack_to = tmp;
-    else
-    {
-        tmp->next = *stack_to;
-        *stack_to = tmp;
-    }
+    tmp->next = *stack_to;
+    *stack_to = tmp;
 }
 
 void    ft_push_a(t_list **stack_a, t_list **stack_b)

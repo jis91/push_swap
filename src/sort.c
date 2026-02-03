@@ -93,22 +93,6 @@ static void    ft_sort_five(t_list **stack_a, t_list **stack_b)
         ft_push_a(stack_a, stack_b);
 }
 
-int     ft_find_max_bits(t_list *stack)
-{
-    int     max;
-    int     max_bits;
-    t_list  *tmp;
-    t_stack *data;
-
-    max = ft_find_biggest(stack);
-    max_bits= 0;
-    tmp = stack;
-
-    while (tmp)
-    {
-        data = (t_stack *)(tmp->content);
-    }
-}
 void    ft_sort_radix(t_list **stack_a, t_list **stack_b)
 {
     int biggest;
@@ -130,5 +114,8 @@ void    ft_sort(t_list  **stack_a, t_list **stack_b)
     else if (size <= 5)
         ft_sort_five(stack_a, stack_b);
     else 
+    {
+        ft_index_stack(stack_a);
         ft_sort_radix(stack_a, stack_b);
+    }
 }

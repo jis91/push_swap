@@ -37,8 +37,10 @@ int ft_check_nb(char *argv)
     int i;
 
     i = 0;
-    if (argv[i] == '-')
-        i++;
+    if (argv[i] == '-' || argv[i] == '+')
+            i++;
+    if (!argv[i])
+            return (1);
     while (argv[i])
     {
         if (!ft_isdigit(argv[i]))
@@ -48,28 +50,37 @@ int ft_check_nb(char *argv)
     return (0);
 }
 
-void ft_check_input(int argc, char **argv)
+static void ft_check_args(char **buffer)
 {
-    int i;
-    long    tmp_argv;
-    char    **buffer;
+    int     i;
+    long    tmp;
 
     i = 0;
-    if (argc == 2)
-        buffer = ft_split(argv[1], ' ');
-    else
-        buffer = argv + 1;
     while (buffer[i])
     {
-        tmp_argv = ft_atoi(buffer[i]);
-        if (tmp_argv < INT_MIN || tmp_argv > INT_MAX)
-            ft_error();
-        if (ft_check_nb(buffer[i]))
-            ft_error();
-        if (ft_check_double(buffer))
+        tmp = ft_atoi(buffer[i]);
+        if (tmp < INT_MIN || tmp > INT_MAX || ft_check_nb(buffer[i]))
             ft_error();
         i++;
     }
-    if (argc == 2)
-        ft_free(buffer);
+    if (ft_check_double(buffer))
+            ft_error();
 }
+void ft_check_input(int argc, char **argv)
+{
+    char    **buffer;
+
+    if (argc == 2)
+    {
+        buffer = ft_split(argv[1], ' ');
+        if (!buffer || !buffer[0])
+            ft_error();
+        ft_check_args(buffer);
+        ft_free_tab(buffer);
+    }
+    else
+        ft_check_args(argv + 1);
+}
+
+
+

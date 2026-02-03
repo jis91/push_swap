@@ -1,20 +1,22 @@
+#include "push_swap.h"
+
 static t_list   *ft_create_node(char *str, t_list *stack)
 {
-    t_stack *element;
+    t_stack *data;
     t_list  *new;
 
-    element = malloc(sizeof(t_stack));
-    if (!element)
+    data = malloc(sizeof(t_stack));
+    if (!data)
     {
         ft_free_stack(&stack);
         ft_error();
     }
-    element->nbr = ft_atoi(str);
-    element->index = -1;
-    new = ft_lstnew(element);
+    data->nbr = ft_atoi(str);
+    data->index = -1;
+    new = ft_lstnew(data);
     if (!new)
     {
-        free(element);
+        free(data);
         ft_free_stack(&stack);
         ft_error();
     }

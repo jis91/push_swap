@@ -2,15 +2,16 @@
 
 int main(int argc, char **argv)
 {
-    t_stack *stack_a;
+    t_list *stack_a;
+    t_list	*stack_b;
+
+	if (argc < 2)
+		return (0);
+    ft_check_input(argc, argv);
     stack_a = ft_init_stack_a(argc, argv);
-    if (!a || ft_check_duplicate(a))
-    {
-        ft_free(&a);
-        ft_error();
-    }
-    if (!ft_check_sorted(a))
-        ft_sort(&a);
-    ft_free(&a);
+    stack_b = NULL;
+    ft_sort(stack_a, stack_b);
+    ft_free_stack(&stack_a);
+    ft_free_stack(&stack_b);
     return (0);
 }
