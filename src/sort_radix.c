@@ -1,20 +1,21 @@
 #include "push_swap.h"
 
-static int  ft_find_max_index(t_list *stack)
+static int	ft_find_max_index(t_list *stack)
 {
-    int     max;
-    t_stack *data;
+	int		max;
+	t_stack	*data;
 
-    max = 0;
-    while (stack)
-    {
-        data = (t_stack *)(stack->content);
-        if (data->index > max)
-            max = data->index;
-        stack = stack->next;
-    }
-    return (max);
-} 
+	max = 0;
+	while (stack)
+	{
+		data = (t_stack *)(stack->content);
+		if (data->index > max)
+			max = data->index;
+		stack = stack->next;
+	}
+	return (max);
+}
+
 static int	ft_get_max_bits(t_list *stack)
 {
 	int	max;
@@ -23,10 +24,10 @@ static int	ft_get_max_bits(t_list *stack)
 	max = ft_find_max_index(stack);
 	max_bits = 0;
 	while (max > 0)
-    {
-        max = max / 2;
-        max_bits++;
-    }
+	{
+		max = max / 2;
+		max_bits++;
+	}
 	return (max_bits);
 }
 
@@ -45,7 +46,7 @@ static int	ft_get_bit(int index, int position)
 	return (result % 2);
 }
 
-void    ft_sort_radix(t_list **stack_a, t_list **stack_b)
+void	ft_sort_radix(t_list **stack_a, t_list **stack_b)
 {
 	int		size;
 	int		max_bits;
